@@ -7,7 +7,14 @@
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
     "expo": "^20.0.0",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
     "react": "16.0.0-alpha.12",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-20.0.0.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-20.0.0.tar.gz",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-observable": "^0.16.0",
+    "rxjs": "^5.4.3",
+    "styled-components": "^2.1.2"
   }
 }
