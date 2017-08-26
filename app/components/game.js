@@ -1,23 +1,52 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
-export default class GameComponents extends React.Component {
+import Player from '@containers/player'
+
+export default class GameComponent extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this._handlePressStart = this._handlePressStart.bind(this)
+  }
+
+  _handlePressStart = () => {
+    const {
+      startGame,
+    } = this .props
+
+    startGame()
+  }
+  
   render() {
     const {
-      isRunning
+      isRunning,
     } = this .props
 
     return (
-      <Status>
-        {`isRunning: ${isRunning}`}
-      </Status>
+      (!isRunning) ? (
+        <StartButton
+          onPress={this._handlePressStart}
+        />
+      ) : (
+        <Wrapper>
+          <Player
+            position={0}
+          />
+          <Player
+            position={1}
+          />
+        </Wrapper>
+      )
     )
   }
 }
 
-const Status = styled.Text`
+const Wrapper = styled.View`
   flex: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+`
+
+const StartButton = styled.Button.attrs({
+  title: 'start game',
+})`
 `

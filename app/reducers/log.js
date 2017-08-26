@@ -6,7 +6,7 @@ function log(
   state = {},
   action,
 ) {
-  console.log(action)
+  console.log('action:', action)
   return state
 }
 

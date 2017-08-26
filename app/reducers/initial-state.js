@@ -1,49 +1,74 @@
-// types:
-// FIRE
-// WATER
-// WOOD
-// METAL
-// EARTH
+import _ from 'lodash'
 
-export default {
-  app: {
-    isReady: true,
-  },
-  game: {
-    isRunning: false,
-    roundDuration: 2000,
-    players:[{
-      master: { 
-        type: 'FIRE',
-        health: 10,
-        cursor: 0,
-      },
-      minions: [{
-        type: 'FIRE',
-        health: 1,
-      }, {
-        type: 'WATER',
-        health: 2,
-      }, {
-        type: 'METAL',
-        health: 3,
-      }]
-    }, {
-      master: { 
-        type: 'WATER',
-        health: 10,
-        cursor: 1,
-      },
-      minions: [{
-        type: 'WATER',
-        health: 1,
-      }, {
-        type: 'METAL',
-        health: 3,
-      }, {
-        type: 'FIRE',
-        health: 2,
-      }]
-    }]
-  },
+export function getRandomHealth(max) {
+  max = Math.floor(max);
+  return Math.floor(Math.random(Date.now()) * max) + 1
+}
+
+export function getRandomType() {
+  min = 0;
+  max = 6;
+  let type
+  const indice = getRandomHealth(5);
+  switch(indice) {
+    case 1:
+      return 'FIRE'
+    case 2:
+      return 'WATER'
+    case 3:
+      return 'WOOD'
+    case 4:
+      return 'METAL'
+    case 5:
+      return 'EARTH'
+  }
+}
+
+export const generateApp = () => ({
+  isReady: true,
+})
+
+export const generateCreature = (health) => ({
+  type: getRandomType(),
+  health,
+})
+
+export const generateMaster = () => generateCreature(10)
+
+export const generateMinion = () => generateCreature(getRandomHealth(3))
+
+export const generatePlayer = () => ({
+  master: {},
+  minions: [],
+  cursor: 0,
+})
+
+export const generateGame = () => ({
+  isRunning: false,
+  roundDuration: 2000,
+  players:[
+    player(),
+    player()
+  ]
+})
+
+export const app = {
+  isReady: true,
+}
+
+export const game = {
+  isRunning: false,
+  roundDuration: 2000,
+  players: [],
+}
+
+export const player = {
+  master: null,
+  minions: [],
+  cursor: 0,
+}
+
+export const minion = {
+  type: null,
+  health: null,
 }

@@ -3,20 +3,18 @@ import { connect } from 'react-redux'
 
 import { 
   isRunning,
-} from '@selectors/app'
+} from '@selectors/game'
 
 import {
   startGame,
   stopGame,
-} from '@actions/games'
+} from '@actions/game'
 
 import Game from '@components/game'
 
-const mapStateToProps = state => {
-  return ({
-    isRunning: isRunning(state.game),
-  })
-}
+const mapStateToProps = state => ({
+  isRunning: isRunning(state.game),
+})
 
 const mapDispatchToProps = dispatch => ({
   startGame: () => dispatch(startGame()),
