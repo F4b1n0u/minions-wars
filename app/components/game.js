@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
+import FloorComponent from '@components/floor'
+
 export default class GameComponents extends React.Component {
   render() {
     const {
@@ -8,16 +10,25 @@ export default class GameComponents extends React.Component {
     } = this .props
 
     return (
-      <Status>
-        {`isRunning: ${isRunning}`}
-      </Status>
+      <Wrapper>
+        <Status>
+          {`isRunning: ${isRunning}`}
+        </Status>
+        <Floor />
+      </Wrapper>
     )
   }
 }
 
-const Status = styled.Text`
+const Wrapper = styled.View`
   flex: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `
+
+const Status = styled.Text`
+  height: 40;
+`
+const Floor = styled(FloorComponent)`
+`
+
+
+
