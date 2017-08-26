@@ -2,9 +2,9 @@
   "name": "minions-wars",
   "version": "0.0.0",
   "description": "Hello Expo!",
-  "author": null,
+  "author": "Daniele & fabien",
   "private": true,
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "./app/index.js",
   "dependencies": {
     "expo": "^20.0.0",
     "lodash": "^4.17.4",
