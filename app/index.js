@@ -1,24 +1,34 @@
 import Expo from 'expo';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux';
+import { createEpicMiddleware } from 'redux-observable';
+import styled from 'styled-components/native'
 
-export default class App extends React.Component {
+// import rootEpic from '@epics';
+import rootReducer from '@reducers'
+
+import AppConponents from '@components/app'
+
+// const epicMiddleware = createEpicMiddleware(rootEpic);
+
+const store = createStore(
+  rootReducer,
+  // applyMiddleware(epicMiddleware)
+);
+
+export default class Index extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <Provider store={store}>
+        <App />
+      </Provider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App = styled(AppConponents)`
+  flex: 1;
+`
 
-Expo.registerRootComponent(App);
+Expo.registerRootComponent(Index)
