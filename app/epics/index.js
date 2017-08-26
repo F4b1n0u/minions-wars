@@ -1,14 +1,7 @@
-// import { combineEpics } from 'redux-observable';
+import { combineEpics } from 'redux-observable'
 
-// import {
-//   default as searchEngineEpic,
-//  } from '@epics/search-engine';
+import gameEpic from '@epics/game'
 
-//  import {
-//   default as gameCatalogueEpic,
-//  } from '@epics/game-catalogue';
-
-// export default combineEpics(
-//   searchEngineEpic,
-//   gameCatalogueEpic,
-// );
+export default combineEpics(
+  gameEpic,
+)
