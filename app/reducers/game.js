@@ -7,7 +7,7 @@ import initialState from '@reducers/initial-state'
 // import {
 //   SHOW_GAME_DETAILS,
 //   HIDE_GAME_DETAILS,
-// } from '@actions/app'
+// } from '@actions/games'
 
 function isRunning(
   state = initialState.game.isRunning,

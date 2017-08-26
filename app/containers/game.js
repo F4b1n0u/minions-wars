@@ -8,7 +8,7 @@ import {
 import {
   startGame,
   stopGame,
-} from '@actions/app'
+} from '@actions/games'
 
 import Game from '@components/game'
 
