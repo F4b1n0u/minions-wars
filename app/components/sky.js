@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
-const backgroundImage = require('../../assets/images/floor.png')
+const backgroundImage = require('../../assets/images/sky.png')
 
-export default class FloorComponent extends React.Component {
+export default class SkyComponent extends React.Component {
   render() {
     return (
-      <Floor/>
+      <Sky/>
     )
   }
 }
 
-const Floor = styled.Image.attrs({
+const Sky = styled.Image.attrs({
   source: backgroundImage,
   resizeMode: 'cover',
   height: undefined,

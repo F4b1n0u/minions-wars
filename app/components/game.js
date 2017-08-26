@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components/native'
 
 import FloorComponent from '@components/floor'
+import SkyComponent from '@components/sky'
 
 export default class GameComponents extends React.Component {
   render() {
@@ -14,6 +15,7 @@ export default class GameComponents extends React.Component {
         <Status>
           {`isRunning: ${isRunning}`}
         </Status>
+        <Sky />
         <Floor />
       </Wrapper>
     )
@@ -28,6 +30,9 @@ const Status = styled.Text`
   height: 40;
 `
 const Floor = styled(FloorComponent)`
+`
+
+const Sky = styled(SkyComponent)`
 `
 
 
