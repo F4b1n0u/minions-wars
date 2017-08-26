@@ -3,14 +3,6 @@ import styled from 'styled-components/native'
 
 const backgroundImage = require('../../assets/images/clock.png')
 
-export default class ClockComponent extends React.Component {
-  render() {
-    return (
-      <Clock/>
-    )
-  }
-}
-
 const Clock = styled.Image.attrs({
   source: backgroundImage,
   resizeMode: 'cover',
@@ -19,7 +11,5 @@ const Clock = styled.Image.attrs({
 })`
   height: 45;
   width: 45;
-  position: absolute;
-  left: 200;
-  top: 25;
 `
+export default Clock

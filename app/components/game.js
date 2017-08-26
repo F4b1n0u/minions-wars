@@ -4,6 +4,7 @@ import styled from 'styled-components/native'
 import FloorComponent from '@components/floor'
 import SkyComponent from '@components/sky'
 import ClockComponent from '@components/clock'
+import PlayerComponent from '@components/player'
 
 export default class GameComponents extends React.Component {
   render() {
@@ -16,9 +17,8 @@ export default class GameComponents extends React.Component {
         <Sky />
         <Floor />
         <Clock />
-        <Status>
-          {`isRunning: ${isRunning}`}
-        </Status>
+        <Player1 left={50} />
+        <Player2 right={50} />
       </Wrapper>
     )
   }
@@ -43,8 +43,14 @@ const Floor = styled(FloorComponent)``
 
 const Sky = styled(SkyComponent)``
 
-const Clock = styled(ClockComponent)`
+const Clock = ClockComponent.extend`
+  position: absolute;
+  left: 200;
+  top: 25;
 `
+
+const Player1 = styled(PlayerComponent)``
+const Player2 = styled(PlayerComponent)``
 
 
 
