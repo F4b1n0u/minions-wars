@@ -4,9 +4,17 @@ import styled from 'styled-components/native'
 import CreatureComponent from '@components/creature'
 
 export default class PlayerComponent extends React.Component {
+  static defaultProps = {
+    minions: new Array(4).fill({
+      type: 'FIRE',
+      health: 3,
+    })
+  }
+
   render() {
     const {
       master,
+      minions,
       ...rest,
     } = this.props
 
@@ -16,11 +24,14 @@ export default class PlayerComponent extends React.Component {
           {...master}
           {...rest}
         />
-
-        <Minion left={10} />
-        <Minion left={40} />
-        <Minion left={70} />
-        <Minion left={100} />
+        {
+          minions.map((minion, index) => (
+            <Minion
+              key={index}
+              left={index * 30 + 10 } 
+            />
+          ))
+        }
       </Wrapper>
     )
   }
@@ -40,7 +51,7 @@ const Minion = CreatureComponent.extend`
   position:absolute;
   height: 30;
   width: 23;
-  bottom: 29;
+  bottom: 26;
   ${props => (props.left) ? `left: ${props.left};` : ''}
   ${props => (props.right) ? `right: ${props.right};` : ''}
 `
@@ -49,7 +60,7 @@ const Master = CreatureComponent.extend`
   position:absolute;
   height: 115;
   width: 87;
-  bottom: 29;
+  bottom: 26;
   ${props => (props.left) ? `left: ${props.left};` : ''}
   ${props => (props.right) ? `right: ${props.right};` : ''}
 `
