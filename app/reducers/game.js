@@ -10,7 +10,9 @@ import {
 import {
   game as initialGame,
   player as initialPlayer,
- } from '@reducers/initial-state'
+} from '@reducers/initial-state'
+
+const amountOfPlayers = 2
 
 function isRunning(
   state = initialGame.isRunning,
@@ -42,7 +44,7 @@ function players(
 ) {
   switch (action.type) {
     case START_GAME:
-      return new Array(2)
+      return new Array(amountOfPlayers)
         .fill('')
         .map(playerReducer.bind(null, initialPlayer, action));
     case STOP_GAME:

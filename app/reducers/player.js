@@ -10,6 +10,8 @@ import minionReducer from '@reducers/minion'
 
 import { START_GAME } from '@actions/game'
 
+const amountOfMinions = 6
+
 function master(
   state = initialPlayer.master,
   action,
@@ -28,7 +30,7 @@ function minions(
 ) {
   switch (action.type) {
     case START_GAME:
-      return new Array(10)
+      return new Array(amountOfMinions)
         .fill('')
         .map(minionReducer.bind(null, generateMinion(), action));
     default:
