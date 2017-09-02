@@ -1,17 +1,40 @@
+import {
+  EARTH,
+  FIRE,
+  METAL,
+  WATER,
+  WOOD,
+} from '@utils/types'
+
 const typesEffectMap = {
-  'FIRE':{
-    weak
+  'EARTH': {
+    isBeatenBy: WOOD,
+    beats: WATER,
+    produces: METAL,
+    isProduceBy: FIRE,
   },
-  'WATER':{
-    weak
+  'FIRE': {
+    isBeatenBy: WATER,
+    beats: METAL,
+    produces: EARTH,
+    isProduceBy: WOOD,
   },
-  'WOOD':{
-    weak
+  'METAL': {
+    isBeatenBy: FIRE,
+    beats: WOOD,
+    produces: WATER,
+    isProduceBy: EARTH,
   },
-  'METAL':{
-    weak
+  'WATER': {
+    isBeatenBy: EARTH,
+    beats: FIRE,
+    produces: WOOD,
+    isProduceBy: METAL,
   },
-  'EARTH':{
-    weak
+  'WOOD': {
+    isBeatenBy: METAL,
+    beats: EARTH,
+    produces: FIRE,
+    isProduceBy: WATER,
   },
 }
