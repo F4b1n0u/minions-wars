@@ -8,8 +8,11 @@ export default class PlayerComponent extends React.Component {
     const {
       master,
       minions,
+      position,
       ...rest,
     } = this.props
+
+    const isPlayer1 = (position === 0) ? true : false;
 
     return (
       <Wrapper>
@@ -18,13 +21,19 @@ export default class PlayerComponent extends React.Component {
           {...rest}
         />
         {
-          minions.map((minion, index) => (
-            <Minion
-              type={minion.type}
-              key={index}
-              left={index * 30 + 10 } 
-            />
-          ))
+          minions.map((minion, index) => {
+            const left = (isPlayer1) ? (index * 30 + 10) : undefined;
+            const right = (!isPlayer1) ? ((minions.length - index) * 30 + 10) : undefined;
+
+            return (
+              <Minion
+                type={minion.type}
+                key={index}
+                left={left}
+                right={right}
+              />
+            )
+          })
         }
       </Wrapper>
     )
