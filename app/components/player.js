@@ -62,8 +62,8 @@ const Minion = Creature.extend`
 
 const Master = Creature.extend`
   position:absolute;
-  height: ${props => 15 * 10 + 20};
-  width: ${props => (15 * 10 + 20) * 0.76};
+  height: ${props => props.health * 10 + 20};
+  width: ${props => (props.health * 10 + 20) * 0.76};
   bottom: 26;
   ${props => (props.left) ? `left: ${props.left};` : ''}
   ${props => (props.right) ? `right: ${props.right};` : ''}
