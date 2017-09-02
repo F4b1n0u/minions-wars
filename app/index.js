@@ -1,21 +1,14 @@
 import Expo from 'expo'
 import React, { Component } from 'react'
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
-import { createEpicMiddleware } from 'redux-observable'
 import styled from 'styled-components/native'
+import { Provider } from 'react-redux'
 
-import rootEpic from '@epics'
-import rootReducer from '@reducers'
+import storeFactory from '@store'
 
 import AppConponents from '@components/app'
 
-const epicMiddleware = createEpicMiddleware(rootEpic);
-
-const store = createStore(
-  rootReducer,
-  applyMiddleware(epicMiddleware)
-);
+const initialState = {}
+const store = storeFactory(initialState)
 
 export default class Index extends Component {
   render() {

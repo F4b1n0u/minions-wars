@@ -14,7 +14,8 @@
         "@epics": "./app/epics",
         "@reducers": "./app/reducers",
         "@selectors": "./app/selectors",
-        "@services": "./app/services"
+        "@services": "./app/services",
+        "@store": "./app/store"
       }
     }]
   ]
