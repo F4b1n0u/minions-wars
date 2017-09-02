@@ -64,11 +64,12 @@ const Floor = styled(FloorComponent)``
 
 const Sky = styled(SkyComponent)``
 
-const Clock = ClockComponent.extend`
+const Clock = styled(ClockComponent)`
   position: absolute;
   left: 200;
   top: 25;
 `
+
 
 const Player1 = styled(PlayerContainer).attrs({
   left: 50,

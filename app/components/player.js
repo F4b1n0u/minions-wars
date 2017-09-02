@@ -31,6 +31,7 @@ export default class PlayerComponent extends React.Component {
                 key={index}
                 left={left}
                 right={right}
+                {...minion}
               />
             )
           })
@@ -52,8 +53,8 @@ const Wrapper = styled.View`
 
 const Minion = Creature.extend`
   position:absolute;
-  height: 30;
-  width: 23;
+  height: ${props => props.health * 10 + 20};
+  width: ${props => (props.health * 10 + 20) * 0.76};
   bottom: 26;
   ${props => (props.left) ? `left: ${props.left};` : ''}
   ${props => (props.right) ? `right: ${props.right};` : ''}
@@ -61,8 +62,8 @@ const Minion = Creature.extend`
 
 const Master = Creature.extend`
   position:absolute;
-  height: 115;
-  width: 87;
+  height: ${props => 15 * 10 + 20};
+  width: ${props => (15 * 10 + 20) * 0.76};
   bottom: 26;
   ${props => (props.left) ? `left: ${props.left};` : ''}
   ${props => (props.right) ? `right: ${props.right};` : ''}
