@@ -6,35 +6,39 @@ import {
   WOOD,
 } from '@utils/types'
 
-const typesEffectMap = {
-  'EARTH': {
+export const typesEffectMap = {
+  [EARTH]: {
     isBeatenBy: WOOD,
     beats: WATER,
     produces: METAL,
     isProduceBy: FIRE,
   },
-  'FIRE': {
+  [FIRE]: {
     isBeatenBy: WATER,
     beats: METAL,
     produces: EARTH,
     isProduceBy: WOOD,
   },
-  'METAL': {
+  [METAL]: {
     isBeatenBy: FIRE,
     beats: WOOD,
     produces: WATER,
     isProduceBy: EARTH,
   },
-  'WATER': {
+  [WATER]: {
     isBeatenBy: EARTH,
     beats: FIRE,
     produces: WOOD,
     isProduceBy: METAL,
   },
-  'WOOD': {
+  [WOOD]: {
     isBeatenBy: METAL,
     beats: EARTH,
     produces: FIRE,
     isProduceBy: WATER,
   },
+}
+
+export default ([creatureA, creatureB]) => {
+  typesEffectMap
 }
