@@ -1,5 +1,13 @@
 import _ from 'lodash'
 
+import {
+  EARTH,
+  FIRE,
+  METAL,
+  WATER,
+  WOOD,
+} from '@utils/types'
+
 export function getRandomHealth(max) {
   max = Math.floor(max);
   return Math.floor(Math.random(Date.now()) * max) + 1
@@ -12,15 +20,15 @@ export function getRandomType() {
   const indice = getRandomHealth(5);
   switch(indice) {
     case 1:
-      return 'FIRE'
+      return FIRE
     case 2:
-      return 'WATER'
+      return WATER
     case 3:
-      return 'WOOD'
+      return WOOD
     case 4:
-      return 'METAL'
+      return METAL
     case 5:
-      return 'EARTH'
+      return EARTH
   }
 }
 
