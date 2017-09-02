@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
-import CreatureComponent from '@components/creature'
+import Creature from '@components/creature'
 
 export default class PlayerComponent extends React.Component {
   render() {
@@ -20,6 +20,7 @@ export default class PlayerComponent extends React.Component {
         {
           minions.map((minion, index) => (
             <Minion
+              type={minion.type}
               key={index}
               left={index * 30 + 10 } 
             />
@@ -40,16 +41,16 @@ const Wrapper = styled.View`
   height: 100%;
 `
 
-const Minion = CreatureComponent.extend`
+const Minion = Creature.extend`
   position:absolute;
   height: 30;
   width: 23;
   bottom: 26;
   ${props => (props.left) ? `left: ${props.left};` : ''}
   ${props => (props.right) ? `right: ${props.right};` : ''}
-`
+`;
 
-const Master = CreatureComponent.extend`
+const Master = Creature.extend`
   position:absolute;
   height: 115;
   width: 87;
