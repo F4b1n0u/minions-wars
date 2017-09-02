@@ -1,0 +1,5 @@
+export const FIRE = 'type/FIRE'
+export const WATER = 'type/WATER'
+export const WOOD = 'type/WOOD'
+export const METAL = 'type/METAL'
+export const EARTH = 'type/EARTH'
